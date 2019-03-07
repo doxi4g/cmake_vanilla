@@ -1,0 +1,65 @@
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++14 -Ofast -g0 -DNDEBUG")
+set(SOURCE
+src/AuctionManager.cpp
+src/BlockCountry.cpp
+src/Cache.cpp
+src/ClientManager.cpp
+src/ClientManagerBoot.cpp
+src/ClientManagerEventFlag.cpp
+src/ClientManagerGuild.cpp
+src/ClientManagerHorseName.cpp
+src/ClientManagerLogin.cpp
+src/ClientManagerParty.cpp
+src/ClientManagerPlayer.cpp
+src/Config.cpp
+src/CsvReader.cpp
+src/DBManager.cpp
+src/GuildManager.cpp
+src/HB.cpp
+src/ItemAwardManager.cpp
+src/ItemIDRangeManager.cpp
+src/Lock.cpp
+src/LoginData.cpp
+src/Main.cpp
+src/Marriage.cpp
+src/Monarch.cpp
+src/MoneyLog.cpp
+src/NetBase.cpp
+src/Peer.cpp
+src/PeerBase.cpp
+src/PrivManager.cpp
+src/ProtoReader.cpp
+src/version.cpp
+src/AuctionManager.h
+src/BlockCountry.h
+src/Cache.h
+src/ClientManager.h
+src/Config.h
+src/CsvReader.h
+src/DBManager.h
+src/GuildManager.h
+src/HB.h
+src/ItemAwardManager.h
+src/ItemIDRangeManager.h
+src/Lock.h
+src/LoginData.h
+src/Main.h
+src/Marriage.h
+src/Monarch.h
+src/MoneyLog.h
+src/NetBase.h
+src/Peer.h
+src/PeerBase.h
+src/PrivManager.h
+src/ProtoReader.h
+src/QID.h
+src/stdafx.h
+)
+
+add_executable(db ${SOURCE})
+target_link_libraries(db
+ PRIVATE 
+  libgame libsql libpoly libthecore
+ PUBLIC
+   pthread mysqlclient
+)
