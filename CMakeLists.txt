@@ -1,0 +1,31 @@
+cmake_minimum_required(VERSION 3.11)
+project(Just4Metin)
+
+if(POLICY CMP0054)
+  cmake_policy(SET CMP0054 NEW)
+endif()
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+list(APPEND CMAKE_MODULE_PATH  "${CMAKE_SOURCE_DIR}/cmake")
+
+include(CheckCXXSourceRuns)
+include(ConfigureBaseTargets)
+include(CheckPlatform)
+
+# Use Extern SDK on Windows
+if(WIN32 AND MSVC)
+  include_directories("${CMAKE_SOURCE_DIR../extern/include/")
+  link_directories("${CMAKE_SOURCE_DIR}../extern/lib/")
+else()
+  include_directories("/usr/local/include/")
+  link_directories("/usr/local/lib/")
+  link_directories("/usr/local/lib/mysql/")
+endif(WIN32 AND MSVC)
+
+add_subdirectory(quest)
+add_subdirectory(liblua)
+add_subdirectory(libthecore)
+add_subdirectory(libsql)
+add_subdirectory(libpoly)
+add_subdirectory(libgame)
+add_subdirectory(db)
+add_subdirectory(game)
