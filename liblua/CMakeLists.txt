@@ -1,0 +1,33 @@
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast -pipe -msse2 -mssse3 -m32 -fno-exceptions --std=c++1z --stdlib=libc++ -DCRYPTOPP_DISABLE_ASM")
+set(SOURCE 
+src/lapi.c
+src/lauxlib.c
+src/lbaselib.c
+src/lcode.c
+src/ldblib.c
+src/ldebug.c
+src/ldo.c
+src/ldump.c
+src/lfunc.c
+src/lgc.c
+src/liolib.c
+src/llex.c
+src/lmathlib.c
+src/lmem.c
+src/loadlib.c
+src/lobject.c
+src/lopcodes.c
+src/lparser.c
+src/lstate.c
+src/lstring.c
+src/lstrlib.c
+src/ltable.c
+src/ltablib.c
+src/ltests.c
+src/ltm.c
+src/lundump.c
+src/lvm.c
+src/lzio.c
+)
+include_directories(include)
+add_library(liblua STATIC ${SOURCE})
